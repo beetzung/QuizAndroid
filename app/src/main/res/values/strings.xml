@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">QuizGame</string>
+    <string name="button_new_game">New game</string>
+    <string name="button_join_game">Join game</string>
+    <string name="button_continue_game">Continue game</string>
+    <string name="hint_player_name">Player name</string>
+    <string name="hint_number_of_players">Number of players</string>
+    <string name="button_create_game">Create game</string>
+    <string name="error_name">Enter name</string>
+    <string name="error_number">Enter number</string>
+    <string name="error_password">Enter password</string>
+    <string name="button_answer">Answer</string>
+    <string name="button_finish">Finish</string>
+    <string name="button_start">Start</string>
+    <string name="text_finished_waiting">Finished! Waiting for other players…</string>
+    <string name="text_finished">Finished! Winner is %s</string>
+    <string name="button_ok">OK</string>
+    <string name="text_correct">Correct!</string>
+    <string name="text_wrong">Wrong…</string>
+    <string name="button_copy">Copy</string>
+    <string name="text_copied">Copied!</string>
+    <string name="text_copy_title">Game password</string>
+    <string name="text_waiting">Waiting for game to begin</string>
+    <string name="text_players">Players</string>
+    <string name="hint_password">Password</string>
+    <string name="title_new_game">New game</string>
+    <string name="title_join_game">Join game</string>
+
+</resources>
