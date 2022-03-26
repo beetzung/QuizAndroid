@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.api.quiz
+package com.beetzung.quizgame.data.retrofit_api_impl.quiz
 
 data class Data(
     val name: String,

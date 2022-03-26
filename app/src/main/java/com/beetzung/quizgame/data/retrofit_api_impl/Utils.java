@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data;
+package com.beetzung.quizgame.data.retrofit_api_impl;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -6,7 +6,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.security.cert.CertificateException;
 
 import okhttp3.OkHttpClient;
 

@@ -15,13 +15,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beetzung.quizgame.R
-import com.beetzung.quizgame.data.prefs.Preferences
 import com.beetzung.quizgame.databinding.FragmentGameBinding
 import com.beetzung.quizgame.ui.MainActivity.Companion.TAG
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class GameFragment : Fragment() {
     private lateinit var binding: FragmentGameBinding
     private val viewModel: GameViewModel by viewModels()
@@ -105,7 +106,7 @@ class GameFragment : Fragment() {
                 binding.buttonAnswer.isEnabled = true
                 binding.buttonAnswer.setText(R.string.button_finish)
                 binding.buttonAnswer.setOnClickListener {
-                    Preferences.reset()
+                    viewModel.reset()
                     Navigation.findNavController(requireView()).popBackStack()
                 }
             }

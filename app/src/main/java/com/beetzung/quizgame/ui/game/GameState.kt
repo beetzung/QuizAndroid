@@ -1,6 +1,6 @@
 package com.beetzung.quizgame.ui.game
 
-import com.beetzung.quizgame.data.api.quiz.Question
+import com.beetzung.quizgame.data.retrofit_api_impl.quiz.Question
 
 data class GameState(
     val refreshing: Boolean? = null,

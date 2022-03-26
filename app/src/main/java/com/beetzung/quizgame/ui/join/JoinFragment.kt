@@ -11,10 +11,11 @@ import androidx.navigation.Navigation
 import com.beetzung.quizgame.R
 import com.beetzung.quizgame.databinding.FragmentJoinBinding
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class JoinFragment : Fragment() {
     private lateinit var binding: FragmentJoinBinding
     private val viewModel: JoinViewModel by viewModels()
