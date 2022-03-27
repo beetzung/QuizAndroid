@@ -20,10 +20,11 @@ import com.beetzung.quizgame.R
 import com.beetzung.quizgame.databinding.FragmentCreateBinding
 import com.beetzung.quizgame.ui.game.GameFragmentDirections
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class CreateFragment : Fragment() {
     private lateinit var binding: FragmentCreateBinding
     private val viewModel: CreateViewModel by viewModels()

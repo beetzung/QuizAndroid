@@ -1,15 +1,15 @@
-package com.beetzung.quizgame.data.prefs
+package com.beetzung.quizgame.data
 
-import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 
-object Preferences {
-    private lateinit var prefs: SharedPreferences
-    const val KEY_GAME = "game"
-    const val KEY_TOKEN = "token"
-    fun init(activity: Activity) {
-        prefs = activity.getPreferences(Context.MODE_PRIVATE)
+class Preferences(context: Context) {
+    private var prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
+    companion object {
+        private const val KEY_GAME = "game"
+        private const val KEY_TOKEN = "token"
     }
 
     fun getGame(): String? = prefs.getString(KEY_GAME, null)

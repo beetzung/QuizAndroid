@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.api.create
+package com.beetzung.quizgame.data.model.create
 
 data class Data(
     val password: String,
