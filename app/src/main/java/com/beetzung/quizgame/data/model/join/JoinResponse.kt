@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.retrofit_api_impl.join
+package com.beetzung.quizgame.data.model.join
 
 data class JoinResponse(
     val data: Data? = null,
