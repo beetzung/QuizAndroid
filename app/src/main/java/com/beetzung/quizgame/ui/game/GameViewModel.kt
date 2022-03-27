@@ -3,7 +3,6 @@ package com.beetzung.quizgame.ui.game
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.beetzung.quizgame.data.LobbyAPI
 import com.beetzung.quizgame.data.model.quiz.QuizResponse
 import com.beetzung.quizgame.data.Preferences
 import com.beetzung.quizgame.data.GameAPI
@@ -21,7 +20,6 @@ import javax.inject.Inject
 @HiltViewModel
 class GameViewModel @Inject constructor(
     private val preferences: Preferences,
-    private val lobbyAPI: LobbyAPI,
     private val gameAPI: GameAPI
 ) : ViewModel() {
     private val _gameFlow = MutableSharedFlow<GameState>()
