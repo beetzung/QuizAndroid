@@ -99,12 +99,5 @@ class GameAPIImpl : GameAPI {
             *data
         )
     ).toString(4)
-
-    private fun JSONObject.getStringN(key: String): String? {
-        return if (isNull(key))
-            null
-        else
-            getString(key)
-    }
 }
 
