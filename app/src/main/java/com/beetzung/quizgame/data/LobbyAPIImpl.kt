@@ -48,7 +48,7 @@ class LobbyAPIImpl : LobbyAPI {
         ): Response<QuizResponse>
     }
 
-    val retofit = Retrofit.Builder()
+    private val retrofit: RetrofitQuizAPI = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(Utils.getUnsafeOkHttpClient().build())
         .baseUrl(BASE_URL)
@@ -57,7 +57,7 @@ class LobbyAPIImpl : LobbyAPI {
 
 
     override suspend fun create(name: String, players: Int): CreateResponse {
-        val response = retofit.create(name, players)
+        val response = retrofit.create(name, players)
         return if (response.isSuccessful) {
             response.body()!!
         } else {
@@ -66,7 +66,7 @@ class LobbyAPIImpl : LobbyAPI {
     }
 
     override suspend fun join(name: String, password: String): JoinResponse {
-        val response = retofit.join(name, password)
+        val response = retrofit.join(name, password)
         return if (response.isSuccessful) {
             response.body()!!
         } else {
@@ -76,7 +76,7 @@ class LobbyAPIImpl : LobbyAPI {
 
     @Deprecated(message = "Moved to socket api")
     override suspend fun start(token: String, password: String): QuizResponse {
-        val response = retofit.start(token, password)
+        val response = retrofit.start(token, password)
         return if (response.isSuccessful) {
             response.body()!!
         } else {
@@ -86,7 +86,7 @@ class LobbyAPIImpl : LobbyAPI {
 
     @Deprecated(message = "Moved to socket api")
     override suspend fun status(token: String, password: String): QuizResponse {
-        val response = retofit.status(token, password)
+        val response = retrofit.status(token, password)
         return if (response.isSuccessful) {
             response.body()!!
         } else {
@@ -96,7 +96,7 @@ class LobbyAPIImpl : LobbyAPI {
 
     @Deprecated(message = "Moved to socket api")
     override suspend fun answer(token: String, password: String, answer: Int): QuizResponse {
-        val response = retofit.answer(token, password, answer)
+        val response = retrofit.answer(token, password, answer)
         return if (response.isSuccessful) {
             response.body()!!
         } else {
@@ -104,9 +104,6 @@ class LobbyAPIImpl : LobbyAPI {
         }
     }
 
-    val <T> Response<T>.errorString
+    private val <T> Response<T>.errorString
     get() = this.errorBody().toString()
-
-    val <T> Response<T>.exception
-    get() = Exception(errorString)
 }
