@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.retrofit_api_impl.create
+package com.beetzung.quizgame.data.model.create
 
 data class Data(
     val password: String,

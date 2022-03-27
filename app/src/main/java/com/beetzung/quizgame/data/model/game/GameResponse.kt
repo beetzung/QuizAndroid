@@ -1,6 +1,6 @@
-package com.beetzung.quizgame.data.retrofit_api_impl.create
+package com.beetzung.quizgame.data.model.game
 
-data class CreateResponse(
+data class GameResponse(
     val data: Data? = null,
     val error: String? = null,
     val status: String? = null

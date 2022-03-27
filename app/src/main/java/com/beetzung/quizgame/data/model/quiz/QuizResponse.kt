@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.retrofit_api_impl.quiz
+package com.beetzung.quizgame.data.model.quiz
 
 data class QuizResponse(
     val data: Data? = null,
