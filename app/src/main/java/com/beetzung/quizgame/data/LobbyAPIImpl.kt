@@ -1,16 +1,15 @@
-package com.beetzung.quizgame.data.retrofit_api_impl
+package com.beetzung.quizgame.data
 
-import com.beetzung.quizgame.data.QuizAPI
-import com.beetzung.quizgame.data.retrofit_api_impl.create.CreateResponse
-import com.beetzung.quizgame.data.retrofit_api_impl.join.JoinResponse
-import com.beetzung.quizgame.data.retrofit_api_impl.quiz.QuizResponse
+import com.beetzung.quizgame.data.model.create.CreateResponse
+import com.beetzung.quizgame.data.model.join.JoinResponse
+import com.beetzung.quizgame.data.model.quiz.QuizResponse
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-class RetrofitAPIImpl : QuizAPI {
+class LobbyAPIImpl : LobbyAPI {
     companion object {
         private var BASE_URL = "https://quiz.beetzung.com/"
         private var LOCAL_URL = "http://192.168.0.193:80/"
@@ -52,7 +51,7 @@ class RetrofitAPIImpl : QuizAPI {
     val retofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .client(Utils.getUnsafeOkHttpClient().build())
-        .baseUrl(LOCAL_URL)
+        .baseUrl(BASE_URL)
         .build()
         .create(RetrofitQuizAPI::class.java)
 
@@ -75,6 +74,7 @@ class RetrofitAPIImpl : QuizAPI {
         }
     }
 
+    @Deprecated(message = "Moved to socket api")
     override suspend fun start(token: String, password: String): QuizResponse {
         val response = retofit.start(token, password)
         return if (response.isSuccessful) {
@@ -84,6 +84,7 @@ class RetrofitAPIImpl : QuizAPI {
         }
     }
 
+    @Deprecated(message = "Moved to socket api")
     override suspend fun status(token: String, password: String): QuizResponse {
         val response = retofit.status(token, password)
         return if (response.isSuccessful) {
@@ -93,6 +94,7 @@ class RetrofitAPIImpl : QuizAPI {
         }
     }
 
+    @Deprecated(message = "Moved to socket api")
     override suspend fun answer(token: String, password: String, answer: Int): QuizResponse {
         val response = retofit.answer(token, password, answer)
         return if (response.isSuccessful) {
