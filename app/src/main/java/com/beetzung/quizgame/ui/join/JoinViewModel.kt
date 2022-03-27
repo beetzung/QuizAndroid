@@ -2,7 +2,7 @@ package com.beetzung.quizgame.ui.join
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.beetzung.quizgame.data.QuizAPI
+import com.beetzung.quizgame.data.LobbyAPI
 import com.beetzung.quizgame.data.Preferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class JoinViewModel @Inject constructor(
     private val preferences: Preferences,
-    private val quizAPI: QuizAPI
+    private val lobbyAPI: LobbyAPI
 ) : ViewModel() {
     private val _stateFlow = MutableStateFlow(JoinState())
     val stateFlow = _stateFlow.asStateFlow()
@@ -21,7 +21,7 @@ class JoinViewModel @Inject constructor(
     fun joinGame(password: String, name: String) {
         viewModelScope.launch {
             _stateFlow.emit(
-                with(quizAPI.join(name, password)) {
+                with(lobbyAPI.join(name, password)) {
                     JoinState(
                         success = data?.let { data ->
                             preferences.saveGame(password, data.token)
