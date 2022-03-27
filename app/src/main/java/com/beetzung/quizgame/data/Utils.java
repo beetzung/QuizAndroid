@@ -1,4 +1,4 @@
-package com.beetzung.quizgame.data.retrofit_api_impl;
+package com.beetzung.quizgame.data;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
